@@ -1,0 +1,16 @@
+{
+  "name": "kafkajs-client",
+  "version": "0.0.1",
+  "description": "kafkajs-client",
+  "main": "client.js",
+  "scripts": {
+    "start": "node consumer.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "kafkajs": "^1.12.0"
+  },
+  "keywords": [],
+  "author": "laurent.broudoux@gmail.com",
+  "license": "Apache-2.0"
+}
