@@ -1,0 +1,126 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Songs API",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "http://api.e-bookmobile.com/{version}",
+      "variables": {
+        "version": {
+          "default": "version"
+        }
+      }
+    }
+  ],
+  "paths": {
+    "/songs": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Songs"
+                }
+              }
+            }
+          }
+        },
+        "description": "Get a list of songs based on the song title.",
+        "operationId": "GET_songs",
+        "parameters": [
+          {
+            "name": "songTitle",
+            "in": "query",
+            "required": true,
+            "description": "The title of the song to search (it is case insensitive and doesn't need to match the whole title)",
+            "schema": {
+              "minLength": 3,
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/songs/{songId}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Song"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "message": "Song not found"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Get the song with `songId = {songId}`",
+        "operationId": "GET_songs-songId"
+      },
+      "parameters": [
+        {
+          "name": "songId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {
+      "Song": {
+        "type": "object",
+        "properties": {
+          "songId": {
+            "type": "string",
+            "required": true
+          },
+          "songTitle": {
+            "type": "string",
+            "required": true
+          },
+          "albumId": {
+            "type": "string",
+            "required": true,
+            "minLength": 36,
+            "maxLength": 36
+          }
+        }
+      },
+      "Songs": {
+        "type": "array",
+        "items": { 
+          "$ref": "#/components/schemas/Song"
+        }
+      }
+    },
+    "responses": {},
+    "parameters": {},
+    "examples": {},
+    "requestBodies": {},
+    "headers": {},
+    "securitySchemes": {},
+    "links": {},
+    "callbacks": {}
+  }
+}
