@@ -7,7 +7,7 @@ const { Kafka } = require('kafkajs')
 var commandArgs = process.argv.slice(2);
 
 const kafkaHost = commandArgs[0] || 'localhost:9092';
-const kafkaTopic = commandArgs[1] || 'UsersignedupAPI_0.1.1_user-signedup';
+const kafkaTopic = commandArgs[1] || 'UsersignedupAvroAPI_0.1.2_user-signedup';
 const KafkaCert = commandArgs[2] || null;
 
 console.log("Connecting to " + kafkaHost + ' on topic ' + kafkaTopic);
