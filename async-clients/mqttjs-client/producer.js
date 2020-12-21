@@ -42,6 +42,10 @@ const sendMessage = () => {
   console.log(msg);
 }
 
+client.on('error', function(err) { 
+  console.error(err); 
+})
+
 client.on('connect', function () {
   setInterval(sendMessage, 3000)
 })

@@ -38,6 +38,10 @@ client.on('connect', function () {
   })
 })
   
+client.on('error', function(err) { 
+  console.error(err); 
+})
+
 client.on('message', function (topic, message) {
   console.log(
     JSON.stringify(JSON.parse(message.toString()), null, 2)
