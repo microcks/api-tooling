@@ -8,11 +8,11 @@ const { SchemaRegistry, readAVSCAsync, COMPATIBILITY: { NONE } } = require('@kaf
 var commandArgs = process.argv.slice(2);
 
 const kafkaHost = commandArgs[0] || 'localhost:9092';
-const kafkaTopic = commandArgs[1] || 'UsersignedupAPI_0.1.2_user-signedup';
-const kafkaRegistry = commandArgs[2] || 'http://localhost:8888'
+const kafkaTopic = commandArgs[1] || 'users';
+const kafkaRegistry = commandArgs[2] || 'http://localhost:8889'
 const kafkaCert = commandArgs[3] || null;
 
-console.log("Connecting to " + kafkaHost + ' on topic ' + kafkaTopic + ", using regsitry " + kafkaRegistry);
+console.log("Connecting to " + kafkaHost + ' on topic ' + kafkaTopic + ", using registry " + kafkaRegistry);
 
 var kafka = null;
 
@@ -42,14 +42,18 @@ const getRandomId = () => Math.random().toString(36).substring(2, 15) + Math.ran
 const createMessage = id => ({
   key: `${id}`,
   value: {
-    name: "Laurent Broudoux",
+    // Bad value: name is undefined in Avro schema in Microcks.
+    //name: "Laurent Broudoux",
+    // Good value: fullName is defined in Avro schema in Microcks.
+    fullName: "Laurent Broudoux",
     email: "laurent@microcks.io",
     age: 41
   }
 })
 
 const run = async () => {
-  const schema = await readAVSCAsync(path.join(__dirname, 'user.avsc'))
+  //const schema = await readAVSCAsync(path.join(__dirname, 'user-signedup-bad.avsc'))
+  const schema = await readAVSCAsync(path.join(__dirname, 'user-signedup.avsc'))
   // Compatibility specification is required for auto-registration if does not exist
   //const { id } = await registry.register(schema, { subject: kafkaTopic + '-value' })
   const { id } = await registry.register(schema, { subject: kafkaTopic + '-value', compatibility: NONE })
