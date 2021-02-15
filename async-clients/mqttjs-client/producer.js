@@ -33,6 +33,7 @@ if (mqttCert != null) {
 const createMessage = () => ({
   streetlightId: "devX",
   lumens: 900, 
+  //location: "47.8509682604982, 0.11136576784773598",
   sentAt: `${new Date().toISOString()}`
 })
 
