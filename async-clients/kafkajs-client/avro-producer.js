@@ -7,7 +7,7 @@ const { Kafka } = require('kafkajs')
 var commandArgs = process.argv.slice(2);
 
 const kafkaHost = commandArgs[0] || 'localhost:9092';
-const kafkaTopic = commandArgs[1] || 'UsersignedupAPI_0.1.2_user-signedup';
+const kafkaTopic = commandArgs[1] || 'UsersignedupAPI-0.1.2-user-signedup';
 const KafkaCert = commandArgs[2] || null;
 
 console.log("Connecting to " + kafkaHost + ' on topic ' + kafkaTopic);
@@ -31,7 +31,8 @@ if (KafkaCert != null) {
   })
 }
 
-var userType = avro.parse('./user-signedup.avsc');
+//var userType = avro.parse('./user-signedup.avsc');
+var userType = avro.parse('./user-signedup-bad.avsc');
 const producer = kafka.producer()
 
 const getRandomId = () => Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
@@ -42,8 +43,10 @@ const createMessage = id => ({
     id: `${id}`,
     sendAt: `${Date.now()}`,
     //sendAt: Date.now(),
-    fullName: "Laurent Broudoux",
+    //fullName: "Laurent Broudoux",
+    name: "Laurent Broudoux",
     email: "laurent@microcks.io",
+    color: "blue",
     age: 41
   })
 })

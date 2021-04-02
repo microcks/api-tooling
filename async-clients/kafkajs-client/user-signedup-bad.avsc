@@ -4,6 +4,7 @@
  "fields": [
      {"name": "name", "type": "string"},
      {"name": "email",  "type": "string"},
+     {"name": "color",  "type": "string"},
      {"name": "age", "type": "int"}
  ]
 }

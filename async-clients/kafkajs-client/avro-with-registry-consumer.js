@@ -7,7 +7,7 @@ const { SchemaRegistry } = require('@kafkajs/confluent-schema-registry')
 var commandArgs = process.argv.slice(2);
 
 const kafkaHost = commandArgs[0] || 'localhost:9092';
-const kafkaTopic = commandArgs[1] || 'UsersignedupAPI_0.1.1_user-signedup';
+const kafkaTopic = commandArgs[1] || 'UsersignedupAPI-0.1.1-user-signedup';
 const kafkaRegistry = commandArgs[2] || 'http://localhost:8888'
 const kafkaCert = commandArgs[3] || null;
 

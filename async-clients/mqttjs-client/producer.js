@@ -6,7 +6,7 @@ var mqtt = require('mqtt')
 var commandArgs = process.argv.slice(2);
 
 const mqttHost = commandArgs[0] || 'mqtt://localhost:1883';
-const mqttTopic = commandArgs[1] || 'streetlights-event-lighting-measured';
+const mqttTopic = commandArgs[1] || 'streetlights/event/lighting/measured';
 const mqttUser = commandArgs[2] || 'microcks';
 const mqttPassword = commandArgs[3] || 'microcks';
 const mqttCert = commandArgs[4] || null;
