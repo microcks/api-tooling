@@ -1,0 +1,17 @@
+{
+    "name": "natjs-client",
+    "version": "0.0.1",
+    "description": "natjs-client",
+    "main": "consumer.js",
+    "type": "module",
+    "scripts": {
+      "start": "node consumer.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+      "nats": "^2.9.2"
+    },
+    "keywords": [],
+    "author": "laurent.broudoux@gmail.com",
+    "license": "Apache-2.0"
+  }
