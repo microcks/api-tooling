@@ -1,0 +1,17 @@
+{
+    "name": "googlepubsub-client",
+    "version": "0.0.1",
+    "description": "googlepubsub-client",
+    "main": "consumer.js",
+    "type": "module",
+    "scripts": {
+      "start": "node consumer.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+      "@google-cloud/pubsub": "^3.3.0"
+    },
+    "keywords": [],
+    "author": "laurent.broudoux@gmail.com",
+    "license": "Apache-2.0"
+}
