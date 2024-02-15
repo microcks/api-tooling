@@ -8,6 +8,8 @@ Offical [grpcurl repo](https://github.com/fullstorydev/grpcur) provides containe
 
 That's why I created this derivative image :wink: 
 
+You can find the result image at `quay.io/microcks/grpcurl:v1.8.9-alpine`.
+
 ## How is it working?
 
 You can use this image to start a small container embedding `grpcurl` and then issue commands with Testcontainers:
