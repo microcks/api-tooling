@@ -18,14 +18,14 @@ jobs:
     steps:
       # Checkout repository content
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Filter container-images
-        uses: dorny/paths-filter@v2
+        uses: dorny/paths-filter@v3
         id: changes
         with:
           filters: |
-            container-images
+            container-images:
               - 'container-images/**'
 
       - name: Set up QEMU
